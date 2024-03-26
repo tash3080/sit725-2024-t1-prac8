@@ -8,6 +8,27 @@ app.use(express.urlencoded({
     extended: false
 }));
 
+
+const cardList = [
+    {
+        title: "Flower 2",
+        image: "images/flower-2.jpg",
+        link: "About Flower 2",
+        desciption: "Demo desciption about flower 2"
+    },
+    {
+        title: "Flower 3",
+        image: "images/flower-3.jpg",
+        link: "About Flower 3",
+        desciption: "Demo desciption about flower 3"
+    }
+]
+
+
+app.get('/api/mycardsprac4', (req, res) => {
+    res.json({ statusCode: 200, data: cardList, message:"Success"});
+})
+
 // app.get('/addTwoNumbers', function(request, response){
 
 //     let num1 = parseInt(request.query.num1);

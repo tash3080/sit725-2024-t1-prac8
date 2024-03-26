@@ -1,17 +1,26 @@
-const cardList = [
-    {
-        title: "Flower 2",
-        image: "images/flower-2.jpg",
-        link: "About Flower 2",
-        desciption: "Demo desciption about flower 2"
-    },
-    {
-        title: "Flower 3",
-        image: "images/flower-3.jpg",
-        link: "About Flower 3",
-        desciption: "Demo desciption about flower 3"
-    }
-]
+// const cardList = [
+//     {
+//         title: "Flower 2",
+//         image: "images/flower-2.jpg",
+//         link: "About Flower 2",
+//         desciption: "Demo desciption about flower 2"
+//     },
+//     {
+//         title: "Flower 3",
+//         image: "images/flower-3.jpg",
+//         link: "About Flower 3",
+//         desciption: "Demo desciption about flower 3"
+//     }
+// ]
+
+
+const getcards = () => {
+    $.get('/api/mycardsprac4', (response) => {
+        if (response.statusCode == 200) {
+            addCards(response.data);
+        }
+    })
+}
 
 const clickMe = () => {
     alert("Thanks a lot. Have a nice day!")
@@ -49,7 +58,8 @@ $(document).ready(function () {
     $('#formSubmit').click(() => {
         submitForm();
     })
-    addCards(cardList);
+    // addCards(cardList);
+    getcards();
 
     $('.modal').modal();
     // $('#modal1').modal('open');
