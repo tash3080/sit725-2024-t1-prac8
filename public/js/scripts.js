@@ -1,5 +1,5 @@
 const getcards = () => {
-    $.get('/api/mycardsprac4', (response) => {
+    $.get('/api/flower', (response) => {
         if (response.statusCode == 200) {
             addCards(response.data);
         }
