@@ -1,19 +1,19 @@
 let collection = require('../models/flower');
 
-const getAllFlowers = async (req,  res) => {
+const postFlower = async (req, res) => {
     try {
-        const result = await collection.getAllFlowers();
-        res.json({ statusCode: 200, data: result, message: "Success" });
+        const flower = req.body;
+        const result = await collection.postFlower(flower);
+        res.json({ statusCode: 200, data: result, message: 'Successful' });
     } catch (err) {
         console.error(err);
     }
 }
 
-const postFlower = async (req, res) => {
+const getAllFlowers = async (req,  res) => {
     try {
-        const flower = req.body;
-        const result = await collection.postFlower(flower);
-        res.json({ statusCode: 201, data: result, message: 'success' });
+        const result = await collection.getAllFlowers();
+        res.json({ statusCode: 200, data: result, message: "Successful" });
     } catch (err) {
         console.error(err);
     }
