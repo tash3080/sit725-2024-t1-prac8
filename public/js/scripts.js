@@ -1,3 +1,5 @@
+let socket = io();
+
 const getcards = () => {
     $.get('/api/flower', (response) => {
         if (response.statusCode == 200) {
@@ -19,6 +21,7 @@ const submitForm = () => {
 
     console.log("Form Data Submitted: ", formData);
     postFlower(formData);
+    // alert('new flower added successfully');
 }
 
 function postFlower(flower) {
@@ -27,8 +30,8 @@ function postFlower(flower) {
         type: 'POST',
         data: flower,
         success: (result) => {
-            if (result.statusCode === 201) {
-                alert('added');
+            if (result.statusCode === 200) {
+                alert('new flower added successfully');
             }
         }
     });
@@ -47,7 +50,6 @@ const addCards =
         });
     }
 
-
 $(document).ready(function () {
     $('.materialboxed').materialbox();
     $('#formSubmit').click(() => {
@@ -60,4 +62,8 @@ $(document).ready(function () {
 
     $('.trigger-modal').modal();
 
+});
+
+socket.on('number', (msg) => { 
+    console.log('Random Number: ' + msg); 
 });
