@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
 
 
 router.post('/', async (req, res) => {
-    controller.getAllFlowers(req, res)
+    controller.postFlower(req, res)
 });
 
 module.exports = router;
